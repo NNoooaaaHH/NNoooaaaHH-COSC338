@@ -1,0 +1,278 @@
+
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in vec2 aPosition;
+
+void main()
+{
+  gl_Position = vec4(aPosition, 0.0, 1.0);
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+out vec4  fColor;
+
+void main()
+{
+    fColor = vec4( 1.0, 0.0, 0.0, 1.0);
+}
+</script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script src="Common/MV.js"></script>
+<script src="mainPage.js"></script>
+
+
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Graphics Portfolio</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 40px;
+        line-height: 1.6;
+        background-color: #351b48; 
+        color: #fad4ff;
+      }
+
+      .container {
+        max-width: 700px;
+        margin:auto;
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 20px;
+        
+      }
+
+
+      .container2 {
+        max-width: 700px;
+        margin:auto;
+        margin-top: -50px; 
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 10px;
+      }
+      a {
+        color: blue;
+      }
+       a:hover {
+         color: #ffa7d4;
+      }
+
+      .container3 {
+        max-width: 1240px;
+        margin-left: -10px;
+        margin-top: 50px; 
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        
+       overflow-wrap: anywhere;
+      }
+
+      .container3 p {
+       white-space: normal;
+      }
+
+      .container3 h2 {
+         color: #fda1f7;
+      }
+
+      .container3 p {
+      color: #e3e3e3;
+      }
+
+
+
+
+
+      .container4 {
+        max-width: 1240px;
+        margin-left: -10px;
+        margin-top: 250px; 
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        
+       overflow-wrap: anywhere;
+      }
+
+      .container4 p {
+      color: #e3e3e3;
+      }
+
+
+
+      .container5 {
+        max-width: 1240px;
+        margin-left: -10px;
+        margin-top: 250px; 
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        
+       overflow-wrap: anywhere;
+      }
+
+      .container5 p {
+      color: #e3e3e3;
+      }
+      .container5   h2 {
+         color: #fda1f7;
+      }
+
+
+
+      .container6 {
+        max-width: 1240px;
+        margin-left: -10px;
+        margin-top: -50px; 
+        border: none;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        
+       overflow-wrap: anywhere;
+      }
+
+      .container6 p {
+      color: #e3e3e3;
+      }
+      .container6   h2 {
+        font-size: 17px;
+         color: #ee74f0;
+         text-align: center;
+      }
+
+      .container6   h3 {
+        font-size: 15px;
+         color: #e3e3e3;
+         text-align: center;
+      }
+
+
+      .container6 a {
+          color: #8374f0;
+        }
+
+      .container6 a:hover {
+         color: #ffa7d4;
+      }
+
+      #status {
+      
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h2>The Commonality Between 3D and 2D Graphics Rendering</h2>
+      <p>By Noah Allen</p> 
+      <div id="status"></div>
+      <canvas id="gl-canvas" width="400" height="400" style="background-color: rgb(0, 0, 0); border: 2px solid rgb(63, 19, 52);"> </canvas>
+    </div>
+    
+<div class="container2">
+  <p>
+    Simple renders of different 2D polygons using WebGL.
+    <a href="artifact2.html">More details about rendering 2D polygons</a>
+  </p>
+</div>
+
+
+<div class="container3">
+  <h2>Simplicity and Similarities Between 3D and 2D Renders</h2>
+  <p>
+    Before I even had the basic understanding of computer graphics pipelining 
+    I have always been under the assumption that the graphics pipeline was an extremely 
+    complicated process that would require many different steps and large amounds of code. 
+    I've always assumed the difference between rendering something simple such as a 2D polygon would be 
+    vasty different than rendering something complex like a 3D model. However, after learning more about
+    the graphics pipeline and familiarizing myself with the process of graphics rendering, I have came to realize that 
+    the process of rendering a simple 2D polygon and a complex 3D model is actually suprisingly very similar. 
+    Once you understand the core foundations behind the graphics pipeline, you will start to realize that the 
+    process is actually quite simple and is consistant across all types of renders. Just look at the step by step process
+    of rendering something simple such as a 2D triangle and something more complex like a 3D Model. 
+  </p>
+</div>
+
+
+
+
+<div class="container4">
+  <p>The pipeline structure is similar across many types of renders. They all go through the same steps:
+  Vertex Shader > Rasterization > Fragment Shader > Render.
+  The main differences being complex 3D renders involve more vertices and triangles when rending more detailed 
+  geometry. They also require more complex mathematics in both the vertex processing and the fragment shaders. 
+  However, the GPU stages remain similar and consistant. The code is also very consistant and similar between complex 3D renders
+  and simple 2D renders. I was able to use the same code structure from rendering a simple red 2D triangle as a foundation to render something as complex
+  as a 3D bunny model. </p>  
+</div>
+
+
+
+
+
+<div class="container5">
+  <h2>Mostly Math and Vertices</h2>
+  <p>
+While working around with the code for rendering 2D polygons to make the 3D bunny model, I came to realize that much
+of what I was doing was just manipulating vertices and using math to get the vertices to be in the right place. It was both intresting and suprising to see how 
+heavily graphics rendering relies on math equations. A large portion of the work I did invovled plugging values into equations, 
+applying transformations, and adjusting vertex positions. I found it interesting that much of the complexity of rendering a 3D model comapred to a simple 2D shape comes mainly from 
+the mathematics and the vertex manipulation, and not the graphics pipelining. In many ways rendering the 3D model felt like I was rendering a 2D shape but with an extra axis to work from.
+  </p>
+</div>
+
+
+<div class="container6">
+  <h2>Different Types of Renders and the Commonality Between Them</h2>
+  
+  <h3>2D Render:
+  <a href="artifact1.html">
+     A Simple House
+  </a>
+  </h3>
+
+  <h3>2D Render:
+  <a href="artifact2.html">
+    Different Polygons
+  </a>
+  </h3>
+
+
+  <h3>2D Render:
+  <a href="koch.html">
+    Koch Snowflake
+  </a>
+  </h3>
+
+  <h3>3D Model: 
+  <a href="bunny.html">
+    The Stanford Bunny
+  </a>
+  </h3>
+
+</div>
+
+  </body>
+  </html>
